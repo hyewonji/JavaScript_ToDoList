@@ -1,12 +1,11 @@
 const form = document.querySelector(".js-toDo"),
     input = form.querySelector("input"),
     toDoBoard = document.querySelector(".js-toDoList");
+const checkBox = document.querySelector("checkBox");
 
 const toDos_LS = "toDos";
-const done_LS = "Done";
 
 let toDos = [];
-let done = [];
 
 function saveToDos() {
     localStorage.setItem(toDos_LS, JSON.stringify(toDos));
@@ -25,13 +24,20 @@ function delToDos(event) {
 
 function doneToDos(event) {
     const chk = event.target;
-    console.log(chk);
-    const span = chk.parentNode.querySelector("span");
-    const text = span.innerText;
-    if (chk) {
+    const li = chk.parentNode;
+    const id = li.id - 1
+    if (toDos[id].check == 0) {
         alert('Well Done!');
+        toDos[id].check = 1;
+        saveToDos();
+
+    } else {
+        alert('cenceled!');
+        toDos[id].check = 0;
+        saveToDos();
     }
-}
+};
+
 
 function paintToDo(text) {
     const li = document.createElement("li");
@@ -49,7 +55,8 @@ function paintToDo(text) {
     toDoBoard.appendChild(li);
     const toDoObj = {
         text: text,
-        id: newId
+        id: newId,
+        check: 0
     };
     toDos.push(toDoObj);
     saveToDos();
@@ -70,9 +77,10 @@ function loadToDos() {
         const parsedToDos = JSON.parse(loadToDos);
         parsedToDos.forEach(function (toDo) {
             paintToDo(toDo.text);
-        })
+        });
     }
 }
+
 
 function init() {
     loadToDos()
