@@ -27,12 +27,12 @@ function doneToDos(event) {
     const li = chk.parentNode;
     const id = li.id - 1
     if (toDos[id].check == 0) {
-        alert('Well Done!');
+        alert('Completed');
         toDos[id].check = 1;
         saveToDos();
 
     } else {
-        alert('cenceled!');
+        alert('cenceled');
         toDos[id].check = 0;
         saveToDos();
     }
@@ -43,6 +43,7 @@ function paintToDo(text) {
     const li = document.createElement("li");
     const checkBox = document.createElement("input");
     checkBox.type = "checkbox";
+    checkBox.className = "checkBox";
     const toDoList = document.createElement("span");
     const delBtn = document.createElement("button");
     const newId = toDos.length + 1;
