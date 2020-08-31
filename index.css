@@ -15,6 +15,7 @@ body{
 .js-toDo{
     margin: 0;
     border: 0;
+    margin-bottom: 27px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -23,7 +24,8 @@ body{
 
 .js-toDoList{
     list-style: none;
-    border-left:0;
+    border:100px,0;
+    padding-inline-start: 0;
 }
 
 .js-clock{
@@ -52,26 +54,25 @@ input {
 }
 
 li{
-    margin-bottom: 10px;
+    margin-bottom: 25px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     width: 200px;
-}
-
-input[type=checkbox] {
-	display: none;
-}
-
-.checkBox{
-    width:30px;
-    height:30px;
-    border-radius: 15px;
-    background-color:#333;
-    border:10px solid #bcbcbc;
     position: relative;
 }
 
+
+
 .delBtn{
     margin-left:15;
+}
+
+i{
+    font-size:30px;
+    color:#606060;
+}
+
+span{
+    font-size:20px;
 }

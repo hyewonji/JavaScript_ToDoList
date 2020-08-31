@@ -26,6 +26,7 @@ function doneToDos(event) {
     const chk = event.target;
     const li = chk.parentNode;
     const id = li.id - 1
+    console.log(id);
     if (toDos[id].check == 0) {
         alert('Completed');
         toDos[id].check = 1;
@@ -41,14 +42,13 @@ function doneToDos(event) {
 
 function paintToDo(text) {
     const li = document.createElement("li");
-    const checkBox = document.createElement("input");
-    checkBox.type = "checkbox";
-    checkBox.className = "checkBox";
+    const checkBox = document.createElement("i");
     const toDoList = document.createElement("span");
-    const delBtn = document.createElement("button");
+    const delBtn = document.createElement("i");
     const newId = toDos.length + 1;
+    checkBox.className = "far fa-circle";
     toDoList.innerText = text;
-    delBtn.innerText = "❌";
+    delBtn.className = "far fa-trash-alt"
     li.appendChild(checkBox);
     li.appendChild(toDoList);
     li.appendChild(delBtn);
