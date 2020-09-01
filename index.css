@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Hi+Melody&family=Lobster+Two&display=swap');
+@import "clock.css";
+@import "toDoList.css";
 
-.title{
-    font-family: 'Bad Script', cursive;
-}
 
 body{
     background-color: #FCF5E3;
@@ -11,88 +10,5 @@ body{
     flex-direction: column;
     align-items: center;
     
-}
-
-.toDoBoard{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-input::placeholder{
-    font-size: 25px;
-    font-family: 'Hi Melody', cursive;
-}
-
-.js-toDo{
-    margin: 0;
-    border: 0;
-    margin-bottom: 27px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-items: center;
-}
-
-.js-toDoList{
-    list-style: none;
-    border:100px,0;
-    padding-inline-start: 0;
-}
-
-.js-clock{
-    display:flex;
-    font-family: 'Bad Script', cursive;
-}
-
-.realTimeDate{
-    margin:0px;
-    border-bottom: 10px;
-}
-
-.realTimeClock{
-    margin:0px;
-    margin-left: 10px;
-    border:0px;
-    text-align: center;
-}
-
-input {
-    border:0px;
-    outline:none;
-    height: 40px;
-    width: 350px;
-    text-align: center;
-    border-radius: 15px;
-}
-
-li{
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /*display:inline-block;*/
-    width: 270px, auto;
-    position: relative;
-}
-
-.delBtn{
-    margin-left:15;
-}
-
-i{
-    font-size:30px;
-    color:#606060;
-}
-
-.fa-trash-alt{
-    font-size:20px;
-}
-
-span{
-    margin-left: 20px;
-    margin-right: 20px;
-    font-size:25px;
-    font-family: 'Hi Melody', cursive;
 }
 

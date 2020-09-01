@@ -1,0 +1,69 @@
+.toDoBoard{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.js-toDo{
+    margin: 0;
+    border: 0;
+    margin-bottom: 27px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.title{
+    font-family: 'Bad Script', cursive;
+}
+
+input {
+    border:0px;
+    outline:none;
+    height: 40px;
+    width: 350px;
+    text-align: center;
+    border-radius: 15px;
+}
+
+input::placeholder{
+    font-size: 25px;
+    font-family: 'Hi Melody', cursive;
+}
+
+.js-toDoList{
+    list-style: none;
+    border:100px,0;
+    padding-inline-start: 0;
+}
+
+li{
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /*display:inline-block;*/
+    width: 270px, auto;
+    position: relative;
+}
+
+.delBtn{
+    margin-left:15;
+}
+
+i{
+    font-size:30px;
+    color:#606060;
+}
+
+.fa-trash-alt{
+    font-size:20px;
+}
+
+span{
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size:25px;
+    font-family: 'Hi Melody', cursive;
+}
