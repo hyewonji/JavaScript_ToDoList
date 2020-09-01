@@ -36,7 +36,6 @@ function doneToDos(event) {
         alert('Canceled');
         toDos[id].check = 0;;
         i.className = "far fa-circle";
-        span = span;
         saveToDos();
     }
 };
@@ -67,6 +66,31 @@ function paintToDo(text) {
     checkBox.addEventListener("click", doneToDos);
 }
 
+function paintToDoChecked(text) {
+    const li = document.createElement("li");
+    const checkBox = document.createElement("i");
+    const toDoList = document.createElement("span");
+    const delBtn = document.createElement("i");
+    const newId = toDos.length + 1;
+    checkBox.className = "far fa-check-circle";
+    toDoList.innerText = text;
+    delBtn.className = "far fa-trash-alt"
+    li.appendChild(checkBox);
+    li.appendChild(toDoList);
+    li.appendChild(delBtn);
+    li.id = newId;
+    toDoBoard.appendChild(li);
+    const toDoObj = {
+        text: text,
+        id: newId,
+        check: 1
+    };
+    toDos.push(toDoObj);
+    saveToDos();
+    delBtn.addEventListener("click", delToDos);
+    checkBox.addEventListener("click", doneToDos);
+}
+
 function handleSubmit(event) {
     event.preventDefault();
     const currentValue = input.value;
@@ -79,7 +103,12 @@ function loadToDos() {
     if (loadToDos !== null) {
         const parsedToDos = JSON.parse(loadToDos);
         parsedToDos.forEach(function (toDo) {
-            paintToDo(toDo.text);
+            if (toDo.check == 1) {
+                console.log("hi");
+                paintToDoChecked(toDo.text);
+            } else {
+                paintToDo(toDo.text);
+            }
         });
     }
 }
