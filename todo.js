@@ -25,16 +25,18 @@ function delToDos(event) {
 function doneToDos(event) {
     const chk = event.target;
     const li = chk.parentNode;
-    const id = li.id - 1
-    console.log(id);
+    const id = li.id - 1;
+    const i = li.querySelector("i");
     if (toDos[id].check == 0) {
         alert('Completed');
         toDos[id].check = 1;
+        i.className = "far fa-check-circle"
         saveToDos();
-
     } else {
-        alert('cenceled');
-        toDos[id].check = 0;
+        alert('Canceled');
+        toDos[id].check = 0;;
+        i.className = "far fa-circle";
+        span = span;
         saveToDos();
     }
 };
