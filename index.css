@@ -1,15 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Hi+Melody&family=Lobster+Two&display=swap');
+
+.title{
+    font-family: 'Bad Script', cursive;
+}
+
 body{
     background-color: #FCF5E3;
     margin-top:80px;
     display:flex;
     flex-direction: column;
     align-items: center;
+    
 }
 
 .toDoBoard{
     display:flex;
     flex-direction: column;
     align-items: center;
+}
+
+input::placeholder{
+    font-size: 25px;
+    font-family: 'Hi Melody', cursive;
 }
 
 .js-toDo{
@@ -30,6 +42,7 @@ body{
 
 .js-clock{
     display:flex;
+    font-family: 'Bad Script', cursive;
 }
 
 .realTimeDate{
@@ -48,7 +61,7 @@ input {
     border:0px;
     outline:none;
     height: 40px;
-    width: 300px;
+    width: 350px;
     text-align: center;
     border-radius: 15px;
 }
@@ -58,11 +71,10 @@ li{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 200px;
+    /*display:inline-block;*/
+    width: 270px, auto;
     position: relative;
 }
-
-
 
 .delBtn{
     margin-left:15;
@@ -73,7 +85,14 @@ i{
     color:#606060;
 }
 
-span{
+.fa-trash-alt{
     font-size:20px;
+}
+
+span{
+    margin-left: 20px;
+    margin-right: 20px;
+    font-size:25px;
+    font-family: 'Hi Melody', cursive;
 }
 
