@@ -1,7 +1,6 @@
 const form = document.querySelector(".js-toDo"),
     input = form.querySelector("input"),
     toDoBoard = document.querySelector(".js-toDoList");
-const checkBox = document.querySelector("checkBox");
 
 const toDos_LS = "toDos";
 
@@ -104,7 +103,6 @@ function loadToDos() {
         const parsedToDos = JSON.parse(loadToDos);
         parsedToDos.forEach(function (toDo) {
             if (toDo.check == 1) {
-                console.log("hi");
                 paintToDoChecked(toDo.text);
             } else {
                 paintToDo(toDo.text);
@@ -112,7 +110,6 @@ function loadToDos() {
         });
     }
 }
-
 
 function init() {
     loadToDos()
