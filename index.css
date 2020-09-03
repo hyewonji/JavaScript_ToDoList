@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Hi+Melody&family=Lobster+Two&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Poor+Story&display=swap');
 @import "clock.css";
 @import "toDoList.css";
 
@@ -10,4 +10,9 @@ body{
     flex-direction: column;
     align-items: center;
     
+}
+
+.count{
+    font-family: 'Poor Story', cursive;
+    font-size:20px;
 }

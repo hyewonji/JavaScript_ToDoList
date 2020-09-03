@@ -1,13 +1,36 @@
 const form = document.querySelector(".js-toDo"),
     input = form.querySelector("input"),
     toDoBoard = document.querySelector(".js-toDoList");
-
 const toDos_LS = "toDos";
-
 let toDos = [];
+
+const countTitle = document.querySelector(".count");
+const counts_LS = "counts";
+let counts = [];
 
 function saveToDos() {
     localStorage.setItem(toDos_LS, JSON.stringify(toDos));
+}
+
+function saveCounts() {
+    localStorage.setItem(counts_LS, JSON.stringify(counts));
+}
+
+function loadCounts() {
+    var ele = document.getElementById('toDoList'),
+        eleCount = ele.childElementCount;
+    const loadCounts = localStorage.getItem(counts_LS);
+    const parsedCouns = JSON.parse(loadCounts);
+    //if (parsedCouns !== null) {
+    countTitle.innerText = `You did ${parsedCouns.length} / ${eleCount}`;
+}
+
+function countToDoList() {
+    var ele = document.getElementById('toDoList'),
+        eleCount = ele.childElementCount;
+
+    //if (parsedCouns !== null) {
+    countTitle.innerText = `You did ${counts.length} / ${eleCount}`;
 }
 
 function delToDos(event) {
@@ -27,16 +50,23 @@ function doneToDos(event) {
     const id = li.id - 1;
     const i = li.querySelector("i");
     if (toDos[id].check == 0) {
-        alert('Completed');
+        //alert('Completed');
         toDos[id].check = 1;
         i.className = "far fa-check-circle"
         saveToDos();
+        counts.push(id);
+        saveCounts();
     } else {
-        alert('Canceled');
+        //alert('Canceled');
         toDos[id].check = 0;;
         i.className = "far fa-circle";
         saveToDos();
+        const idx = counts.indexOf(id);
+        console.log(idx);
+        counts.splice(idx, 1);
+        saveCounts();
     }
+    countToDoList();
 };
 
 
@@ -112,8 +142,9 @@ function loadToDos() {
 }
 
 function init() {
-    loadToDos()
-    form.addEventListener("submit", handleSubmit)
+    loadToDos();
+    loadCounts();
+    form.addEventListener("submit", handleSubmit);
 }
 
-init()
+init();
