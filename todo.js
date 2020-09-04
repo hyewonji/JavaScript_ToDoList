@@ -21,17 +21,22 @@ function loadCounts() {
         eleCount = ele.childElementCount;
     const loadCounts = localStorage.getItem(counts_LS);
     const parsedCouns = JSON.parse(loadCounts);
+    parsedCouns.forEach(function count(count) {
+        counts.push(count);
+    })
+    console.log(counts);
     //if (parsedCouns !== null) {
     countTitle.innerText = `You did ${parsedCouns.length} / ${eleCount}`;
 }
 
-function countToDoList() {
+function countToDo() {
     var ele = document.getElementById('toDoList'),
         eleCount = ele.childElementCount;
 
     //if (parsedCouns !== null) {
     countTitle.innerText = `You did ${counts.length} / ${eleCount}`;
 }
+
 
 function delToDos(event) {
     const btn = event.target;
@@ -62,13 +67,11 @@ function doneToDos(event) {
         i.className = "far fa-circle";
         saveToDos();
         const idx = counts.indexOf(id);
-        console.log(idx);
         counts.splice(idx, 1);
         saveCounts();
     }
-    countToDoList();
+    countToDo();
 };
-
 
 function paintToDo(text) {
     const li = document.createElement("li");
@@ -138,12 +141,12 @@ function loadToDos() {
                 paintToDo(toDo.text);
             }
         });
+        loadCounts();
     }
 }
 
 function init() {
     loadToDos();
-    loadCounts();
     form.addEventListener("submit", handleSubmit);
 }
 
