@@ -16,19 +16,6 @@ function saveCounts() {
     localStorage.setItem(counts_LS, JSON.stringify(counts));
 }
 
-function loadCounts() {
-    var ele = document.getElementById('toDoList'),
-        eleCount = ele.childElementCount;
-    const loadCounts = localStorage.getItem(counts_LS);
-    const parsedCouns = JSON.parse(loadCounts);
-    parsedCouns.forEach(function count(count) {
-        counts.push(count);
-    })
-    console.log(counts);
-    //if (parsedCouns !== null) {
-    countTitle.innerText = `You did ${parsedCouns.length} / ${eleCount}`;
-}
-
 function countToDo() {
     var ele = document.getElementById('toDoList'),
         eleCount = ele.childElementCount;
@@ -55,14 +42,13 @@ function doneToDos(event) {
     const id = li.id - 1;
     const i = li.querySelector("i");
     if (toDos[id].check == 0) {
-        //alert('Completed');
         toDos[id].check = 1;
         i.className = "far fa-check-circle"
         saveToDos();
         counts.push(id);
         saveCounts();
     } else {
-        //alert('Canceled');
+        alert('Canceled');
         toDos[id].check = 0;;
         i.className = "far fa-circle";
         saveToDos();
@@ -121,13 +107,35 @@ function paintToDoChecked(text) {
     saveToDos();
     delBtn.addEventListener("click", delToDos);
     checkBox.addEventListener("click", doneToDos);
+    //paintCounts();
 }
+
+/*function paintCounts() {
+    var ele2 = document.getElementById('toDoList'),
+        eleCount2 = ele2.childElementCount;
+    console.log(eleCount2);
+    console.log(counts);
+    //if (parsedCouns !== null) {
+    countTitle.innerText = `You did ${counts.length} / ${eleCount}`;
+}*/
 
 function handleSubmit(event) {
     event.preventDefault();
     const currentValue = input.value;
     paintToDo(currentValue);
     input.value = "";
+}
+
+function loadCounts() {
+    var ele = document.getElementById('toDoList'),
+        eleCount = ele.childElementCount;
+    const loadCounts = localStorage.getItem(counts_LS);
+    const parsedCouns = JSON.parse(loadCounts);
+    parsedCouns.forEach(function count(count) {
+        counts.push(count);
+    })
+    //if (parsedCouns !== null) {
+    countTitle.innerText = `You did ${parsedCouns.length} / ${eleCount}`;
 }
 
 function loadToDos() {
@@ -147,6 +155,7 @@ function loadToDos() {
 
 function init() {
     loadToDos();
+    saveCounts();
     form.addEventListener("submit", handleSubmit);
 }
 
