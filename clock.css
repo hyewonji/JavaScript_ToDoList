@@ -1,4 +1,6 @@
 .js-clock{
+    position: fixed;
+    top:65px;
     display:flex;
     font-family: 'Bad Script', cursive;
 }

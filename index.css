@@ -2,25 +2,39 @@
 @import "clock.css";
 @import "toDoList.css";
 
+*{
+    box-sizing: border-box;
+}
 
 body{
-    background-color: #FCF5E3;
+    height: 100%;
+    width: 100%;
     display:flex;
     flex-direction: column;
     align-items: center;  
 }
 
 .form{
-    background-color: #FCF5E3;
-    margin-top:70px;
-    margin-bottom: 70px;
+    background-color: #fff9ea;
+    height: 600px;
+    margin-top:50px;
+    margin-bottom: 50px;
+    padding : 20px;
+    overflow: scroll;
     display:flex;
     flex-direction: column;
     align-items: center;
-    
+    border-radius: 50px;
+    position: absolute;
 }
 
 .count{
+    position: relative;
+    background-color: #fff9ea;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
     font-family: 'Poor Story', cursive;
     font-size:20px;
+    border-top: 1px solid #f7f7f7;
 }

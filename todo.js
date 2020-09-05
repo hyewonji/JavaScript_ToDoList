@@ -24,7 +24,6 @@ function countToDo() {
     countTitle.innerText = `You did ${counts.length} / ${eleCount}`;
 }
 
-
 function delToDos(event) {
     const btn = event.target;
     const li = btn.parentNode;
@@ -34,6 +33,7 @@ function delToDos(event) {
     })
     toDos = cleanToDos;
     saveToDos();
+    countToDo();
 }
 
 function doneToDos(event) {
@@ -123,6 +123,7 @@ function handleSubmit(event) {
     event.preventDefault();
     const currentValue = input.value;
     paintToDo(currentValue);
+    countToDo();
     input.value = "";
 }
 
