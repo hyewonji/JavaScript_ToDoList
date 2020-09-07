@@ -48,7 +48,7 @@ li{
     align-items: center;
     justify-content: space-between;
     /*display:inline-block;*/
-    width: 350px;
+    width: 300px;
     position: relative;
 }
 
@@ -59,6 +59,11 @@ li{
 i{
     font-size:30px;
     color:#606060;
+}
+
+.fa-check-circle{
+    color:#ff946d;
+    font-size:28px;
 }
 
 .fa-trash-alt{

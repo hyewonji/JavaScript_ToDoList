@@ -27,6 +27,13 @@ function countToDo() {
 function delToDos(event) {
     const btn = event.target;
     const li = btn.parentNode;
+    const id = li.id - 1;
+    const i = li.querySelector("i");
+    if (i.className == 'fas fa-check-circle') {
+        const idx = counts.indexOf(id);
+        counts.splice(idx, 1);
+        saveCounts();
+    }
     toDoBoard.removeChild(li);
     const cleanToDos = toDos.filter(function (toDo) {
         return toDo.id !== parseInt(li.id);
@@ -43,7 +50,7 @@ function doneToDos(event) {
     const i = li.querySelector("i");
     if (toDos[id].check == 0) {
         toDos[id].check = 1;
-        i.className = "far fa-check-circle"
+        i.className = "fas fa-check-circle"
         saveToDos();
         counts.push(id);
         saveCounts();
@@ -90,7 +97,7 @@ function paintToDoChecked(text) {
     const toDoList = document.createElement("span");
     const delBtn = document.createElement("i");
     const newId = toDos.length + 1;
-    checkBox.className = "far fa-check-circle";
+    checkBox.className = "fas fa-check-circle";
     toDoList.innerText = text;
     delBtn.className = "far fa-trash-alt"
     li.appendChild(checkBox);
@@ -131,12 +138,12 @@ function loadCounts() {
     var ele = document.getElementById('toDoList'),
         eleCount = ele.childElementCount;
     const loadCounts = localStorage.getItem(counts_LS);
-    const parsedCouns = JSON.parse(loadCounts);
-    parsedCouns.forEach(function count(count) {
+    const parsedCounts = JSON.parse(loadCounts);
+    parsedCounts.forEach(function (count) {
         counts.push(count);
-    })
+    });
     //if (parsedCouns !== null) {
-    countTitle.innerText = `You did ${parsedCouns.length} / ${eleCount}`;
+    countTitle.innerText = `You did ${parsedCounts.length} / ${eleCount}`;
 }
 
 function loadToDos() {
@@ -156,7 +163,6 @@ function loadToDos() {
 
 function init() {
     loadToDos();
-    saveCounts();
     form.addEventListener("submit", handleSubmit);
 }
 
