@@ -57,11 +57,13 @@ function doneToDos(event) {
     if (done.check == 0) {
         done.check = 1;
         i.className = "fas fa-check-circle"
+        span.classList.add("checked");
         counts.push(id);
     } else {
         alert('Canceled');
         done.check = 0;
         i.className = "far fa-circle";
+        span.classList.remove("checked");
         const idx = counts.indexOf(id);
         counts.splice(idx, 1);
     }
@@ -102,7 +104,8 @@ function paintToDoChecked(text) {
     const newId = toDos.length + 1;
     checkBox.className = "fas fa-check-circle";
     toDoList.innerText = text;
-    delBtn.className = "far fa-trash-alt"
+    toDoList.classList.add("checked");
+    delBtn.className = "far fa-trash-alt";
     li.appendChild(checkBox);
     li.appendChild(toDoList);
     li.appendChild(delBtn);

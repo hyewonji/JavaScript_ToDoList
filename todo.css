@@ -58,7 +58,6 @@ li{
 
 i{
     font-size:30px;
-    color:#606060;
 }
 
 .fa-check-circle{
@@ -74,6 +73,13 @@ span{
     margin-left: 20px;
     margin-right: 20px;
     font-size:23px;
+    font-weight:lighter;
     font-family: 'Poor Story', cursive;
+}
+
+.checked{
+    text-decoration : line-through;
+    font-style: italic;
+
     color:#606060;
 }
