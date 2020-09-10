@@ -21,19 +21,21 @@
 input {
     border:0px;
     outline:none;
+    border:1px solid #a5acb1;
     height: 40px;
     width: 350px;
     text-align: center;
     border-radius: 15px;
     font-size: 20px;
-    font-family: 'Poor Story', cursive;
+    font-family: 'Gaegu', cursive;
 }
 
 input::placeholder{
     font-size: 20px;
-    font-family: 'Poor Story', cursive;
+    font-family: 'Gaegu', cursive;
     text-align: center;
     text-justify: center;
+    color:#a5acb1;
 }
 
 .js-toDoList{
@@ -58,6 +60,11 @@ li{
 
 i{
     font-size:30px;
+    color:#92999e;
+}
+
+i:hover{
+    color:#5F6266;
 }
 
 .fa-check-circle{
@@ -65,21 +72,24 @@ i{
     font-size:28px;
 }
 
+.fa-check-circle:hover{
+    color:#ff7340;
+}
+
 .fa-trash-alt{
     font-size:20px;
-}
+} 
 
 span{
     margin-left: 20px;
     margin-right: 20px;
     font-size:23px;
-    font-weight:lighter;
-    font-family: 'Poor Story', cursive;
+    font-family: 'Gaegu', cursive;
 }
 
 .checked{
     text-decoration : line-through;
     font-style: italic;
-
+    font-size: 20px;
     color:#606060;
 }
