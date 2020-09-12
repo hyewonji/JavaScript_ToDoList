@@ -24,21 +24,25 @@ function countToDo() {
 }
 
 function delToDos(event) {
-    const btn = event.target;
-    const li = btn.parentNode;
-    const id = li.id - 1;
-    const i = li.querySelector("i");
-    if (i.className == 'fas fa-check-circle') {
-        const idx = counts.indexOf(id);
-        counts.splice(idx, 1);
-        saveCounts();
+    if (confirm('Want to remove?') == true) {
+        const btn = event.target;
+        const li = btn.parentNode;
+        const id = li.id - 1;
+        const i = li.querySelector("i");
+        if (i.className == 'fas fa-check-circle') {
+            const idx = counts.indexOf(id);
+            counts.splice(idx, 1);
+            saveCounts();
+        }
+        toDoBoard.removeChild(li);
+        const cleanToDos = toDos.filter(function (toDo) {
+            return toDo.id !== parseInt(li.id);
+        })
+        toDos = cleanToDos;
+        saveToDos();
+    } else {
+        return false;
     }
-    toDoBoard.removeChild(li);
-    const cleanToDos = toDos.filter(function (toDo) {
-        return toDo.id !== parseInt(li.id);
-    })
-    toDos = cleanToDos;
-    saveToDos();
 }
 
 function doneToDos(event) {
@@ -60,7 +64,6 @@ function doneToDos(event) {
         span.classList.add("checked");
         counts.push(id);
     } else {
-        alert('Canceled');
         done.check = 0;
         i.className = "far fa-circle";
         span.classList.remove("checked");
