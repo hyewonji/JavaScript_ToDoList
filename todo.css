@@ -93,3 +93,9 @@ span{
     font-size: 20px;
     color:#606060;
 }
+
+.all{
+    display: flex;
+    
+    font-family: 'Gaegu', cursive;
+}
