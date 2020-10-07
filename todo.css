@@ -94,8 +94,17 @@ span{
     color:#606060;
 }
 
-.all{
+.btn{
     display: flex;
-    
     font-family: 'Gaegu', cursive;
+}
+
+.all{
+    margin:8px;
+    padding:3px;
+    font-size: 18px;
+}
+
+.all:hover{
+    cursor:cross;
 }

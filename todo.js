@@ -8,6 +8,10 @@ const countTitle = document.querySelector(".count");
 const counts_LS = "counts";
 let counts = [];
 
+const allUnChecked = document.querySelector(".allUnChecked"),
+    allChecked = document.querySelector(".allChecked"),
+    allDeleted = document.querySelector(".allDeleted"),
+
 function saveToDos() {
     localStorage.setItem(toDos_LS, JSON.stringify(toDos));
     countToDo();
@@ -159,9 +163,14 @@ function loadToDos() {
     }
 }
 
+function allCheck{
+
+}
+
 function init() {
     loadToDos();
     form.addEventListener("submit", handleSubmit);
+    allChecked.addEventListener("click", allCheck)
 }
 
 init();
