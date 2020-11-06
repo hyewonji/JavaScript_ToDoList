@@ -10,7 +10,7 @@ let counts = [];
 
 const allUnChecked = document.querySelector(".allUnChecked"),
     allChecked = document.querySelector(".allChecked"),
-    allDeleted = document.querySelector(".allDeleted"),
+    allDeleted = document.querySelector(".allDeleted");
 
 function saveToDos() {
     localStorage.setItem(toDos_LS, JSON.stringify(toDos));
