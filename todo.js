@@ -8,10 +8,6 @@ const countTitle = document.querySelector(".count");
 const counts_LS = "counts";
 let counts = [];
 
-const allUnChecked = document.querySelector(".allUnChecked"),
-    allChecked = document.querySelector(".allChecked"),
-    allDeleted = document.querySelector(".allDeleted");
-
 function saveToDos() {
     localStorage.setItem(toDos_LS, JSON.stringify(toDos));
     countToDo();
@@ -28,12 +24,13 @@ function countToDo() {
 }
 
 function delToDos(event) {
-    if (confirm('Want to remove?') == true) {
+    const text = event.target.parentNode.innerText
+    if (confirm(`Want to remove "${text}"?`) === true) {
         const btn = event.target;
         const li = btn.parentNode;
         const id = li.id - 1;
         const i = li.querySelector("i");
-        if (i.className == 'fas fa-check-circle') {
+        if (i.className === 'fas fa-check-circle') {
             const idx = counts.indexOf(id);
             counts.splice(idx, 1);
             saveCounts();
@@ -62,7 +59,7 @@ function doneToDos(event) {
         }
     }
     const done = toDos.find(isChecked);
-    if (done.check == 0) {
+    if (done.check === 0) {
         done.check = 1;
         i.className = "fas fa-check-circle"
         span.classList.add("checked");
@@ -153,7 +150,7 @@ function loadToDos() {
     if (loadToDos !== null) {
         const parsedToDos = JSON.parse(loadToDos);
         parsedToDos.forEach(function (toDo) {
-            if (toDo.check == 1) {
+            if (toDo.check === 1) {
                 paintToDoChecked(toDo.text);
             } else {
                 paintToDo(toDo.text);
@@ -163,14 +160,10 @@ function loadToDos() {
     }
 }
 
-function allCheck{
-
-}
 
 function init() {
     loadToDos();
     form.addEventListener("submit", handleSubmit);
-    allChecked.addEventListener("click", allCheck)
 }
 
 init();
