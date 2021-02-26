@@ -16,7 +16,6 @@ function countToDos() {
 }
 
 function delToDos(event) {
-    console.log(event.target.parentNode)
     const text = event.target.parentNode.innerText
     if (confirm(`Want to remove "${text}"?`) === true) {
         const btn = event.target;
@@ -41,24 +40,28 @@ function delToDos(event) {
 function doneToDos(event) {
     const chk = event.target;
     const li = chk.parentNode;
-    const id = li.id-1 ;
-    const isChecked = toDos[id].check;
-    console.log(id,isChecked,toDos)
+    const id = li.id ;
     const checkI = li.querySelector("i");
     const span = li.querySelector("span");
-    if (isChecked) {
-        toDos[id].check = 0;
-        console.log(toDos)
-        checkI.className = "far fa-circle"
-        counts -= 1
-    } else {
-        toDos[id].check = 1;
-        console.log(toDos)
-        checkI.className = "fas fa-check-circle";
-        counts += 1;
-    }
-    saveToDos();
-    countToDos();
+    toDos.map(function(item) {
+        if(item.id === parseInt(id)){
+            const isChecked = item.check;
+            if (isChecked) {
+                item.check = 0;
+                checkI.className = "far fa-circle"
+                counts -= 1
+            } else {
+                item.check = 1;
+                checkI.className = "fas fa-check-circle";
+                counts += 1;
+            }
+            saveToDos();
+            countToDos();
+            
+        }
+    });
+    
+
 };
 
 function paintToDo(text,check) {
