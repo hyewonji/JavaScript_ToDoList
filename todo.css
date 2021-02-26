@@ -1,110 +1,110 @@
-.toDoBoard{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
+.js-toDoBoard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.js-toDo{
-    margin: 0;
-    border: 0;
-    margin-bottom: 27px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-items: center;
+.toDoForm {
+  margin: 0;
+  border: 0;
+  margin-bottom: 27px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
 }
 
-.title{
-    font-family: 'Bad Script', cursive;
+.title {
+  font-family: "Bad Script", cursive;
 }
 
 input {
-    border:0px;
-    outline:none;
-    border:1px solid #a5acb1;
-    height: 40px;
-    width: 350px;
-    text-align: center;
-    border-radius: 15px;
-    font-size: 20px;
-    font-family: 'Gaegu', cursive;
+  border: 0px;
+  outline: none;
+  border: 1px solid #a5acb1;
+  height: 40px;
+  width: 350px;
+  text-align: center;
+  border-radius: 15px;
+  font-size: 20px;
+  font-family: "Gaegu", cursive;
 }
 
-input::placeholder{
-    font-size: 20px;
-    font-family: 'Gaegu', cursive;
-    text-align: center;
-    text-justify: center;
-    color:#a5acb1;
+input::placeholder {
+  font-size: 20px;
+  font-family: "Gaegu", cursive;
+  text-align: center;
+  text-justify: center;
+  color: #a5acb1;
 }
 
-.js-toDoList{
-    list-style: none;
-    border:100px,0;
-    padding-inline-start: 0;
+.toDoList {
+  list-style: none;
+  border: 100px, 0;
+  padding-inline-start: 0;
 }
 
-li{
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    /*display:inline-block;*/
-    width: 300px;
-    position: relative;
+li {
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /*display:inline-block;*/
+  width: 300px;
+  position: relative;
 }
 
-.delBtn{
-    margin-left:15;
+.delBtn {
+  margin-left: 15;
 }
 
-i{
-    font-size:30px;
-    color:#92999e;
+i {
+  font-size: 30px;
+  color: #92999e;
 }
 
-i:hover{
-    color:#5F6266;
+i:hover {
+  color: #5f6266;
 }
 
-.fa-check-circle{
-    color:#ff946d;
-    font-size:28px;
+.fa-check-circle {
+  color: #ff946d;
+  font-size: 28px;
 }
 
-.fa-check-circle:hover{
-    color:#ff7340;
+.fa-check-circle:hover {
+  color: #ff7340;
 }
 
-.fa-trash-alt{
-    font-size:20px;
-} 
-
-span{
-    margin-left: 20px;
-    margin-right: 20px;
-    font-size:23px;
-    font-family: 'Gaegu', cursive;
+.fa-trash-alt {
+  font-size: 20px;
 }
 
-.checked{
-    text-decoration : line-through;
-    font-style: italic;
-    font-size: 20px;
-    color:#606060;
+span {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-size: 23px;
+  font-family: "Gaegu", cursive;
 }
 
-.btn{
-    display: flex;
-    font-family: 'Gaegu', cursive;
+.checked {
+  text-decoration: line-through;
+  font-style: italic;
+  font-size: 20px;
+  color: #606060;
 }
 
-.all{
-    margin:8px;
-    padding:3px;
-    font-size: 18px;
+.btn {
+  display: flex;
+  font-family: "Gaegu", cursive;
 }
 
-.all:hover{
-    cursor: pointer;;
+.all {
+  margin: 8px;
+  padding: 3px;
+  font-size: 18px;
+}
+
+.all:hover {
+  cursor: pointer;
 }
