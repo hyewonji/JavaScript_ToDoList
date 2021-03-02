@@ -1,0 +1,64 @@
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 30px;
+}
+
+.js-clock {
+  display: flex;
+  font-family: "Bad Script", cursive;
+  border-bottom: 10px;
+}
+
+.realTimeDate {
+  margin: 0px;
+}
+
+.realTimeClock {
+  margin: 0px;
+  margin-left: 10px;
+  border: 0px;
+}
+
+.js-toDoBoard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.toDoForm {
+  margin: 0;
+  border: 0;
+  margin-bottom: 27px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+}
+
+.title {
+  font-family: "Bad Script", cursive;
+}
+
+input {
+  border: 0px;
+  outline: none;
+  border: 1px solid #a5acb1;
+  height: 40px;
+  width: 350px;
+  text-align: center;
+  border-radius: 15px;
+  font-size: 20px;
+  font-family: "Gaegu", cursive;
+}
+
+input::placeholder {
+  font-size: 20px;
+  font-family: "Gaegu", cursive;
+  text-align: center;
+  text-justify: center;
+  color: #a5acb1;
+}

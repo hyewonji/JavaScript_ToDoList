@@ -112,13 +112,11 @@ function checkAll(e){
         return
     }
     if(e.target.className === "all allChecked"){
-        console.log("checked");
         const lis = toDoList.querySelectorAll("i.fa-circle");
         toDos.forEach(todo => todo.check = 1);
         lis.forEach(todo => todo.className = "fa-check-circle");
         counts = toDos.length;
     } else {
-        console.log("unchecked");
         const lis = toDoList.querySelectorAll("i.fa-check-circle");
         toDos.forEach(todo => todo.check = 0);
         lis.forEach(todo => todo.className = "fa-circle");

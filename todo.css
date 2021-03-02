@@ -1,51 +1,18 @@
-.js-toDoBoard {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+main {
+  height: 350px;
+  overflow: auto;
+  position: relative;
+  top: 80px;
 }
 
-.toDoForm {
-  margin: 0;
-  border: 0;
-  margin-bottom: 27px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-items: center;
-}
-
-.title {
-  font-family: "Bad Script", cursive;
-}
-
-input {
-  border: 0px;
-  outline: none;
-  border: 1px solid #a5acb1;
-  height: 40px;
-  width: 350px;
-  text-align: center;
-  border-radius: 15px;
-  font-size: 20px;
-  font-family: "Gaegu", cursive;
-}
-
-input::placeholder {
-  font-size: 20px;
-  font-family: "Gaegu", cursive;
-  text-align: center;
-  text-justify: center;
-  color: #a5acb1;
-}
-
-.toDoList {
+main > ul {
   list-style: none;
   border: 100px, 0;
   padding-inline-start: 0;
-  margin-bottom: 0;
+  margin: 0;
 }
 
-li {
+ul > li {
   margin-bottom: 25px;
   display: flex;
   align-items: center;
@@ -54,61 +21,67 @@ li {
   position: relative;
 }
 
-li:last-child {
-  margin-bottom: 0;
-}
-
-.delBtn {
-  margin-left: 15;
-}
-
-i {
+li > i {
   font-size: 30px;
   color: #92999e;
 }
 
-i:hover {
+li > i:hover {
   color: #5f6266;
 }
 
-.fa-check-circle {
+li > .fa-check-circle {
   color: #ff946d;
   font-size: 28px;
 }
 
-.fa-check-circle:hover {
+li > .fa-check-circle:hover {
   color: #ff7340;
 }
 
-.fa-trash-alt {
+li > .fa-trash-alt {
   font-size: 20px;
 }
 
-span {
+li > span {
   margin-left: 20px;
   margin-right: 20px;
   font-size: 23px;
   font-family: "Gaegu", cursive;
 }
 
-.checked {
+li > .checked {
   text-decoration: line-through;
   font-style: italic;
   font-size: 20px;
   color: #606060;
 }
 
-.js-btn {
+.state {
+  position: absolute;
+  bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.state > .js-btn {
   display: flex;
 }
 
-.all {
+.js-btn > .all {
   color: rgb(153, 153, 153);
   font-family: "Gaegu", cursive;
   font-size: 15px;
   padding: 10px 10px 25px 10px;
 }
 
-.all:hover {
+.js-btn > .all:hover {
   cursor: pointer;
+}
+
+.state > .js-count {
+  font-family: "Gaegu", cursive;
+  font-size: 20px;
 }
