@@ -1,11 +1,21 @@
-const toDoForm = document.querySelector(".toDoForm"),
-    input = toDoForm.querySelector("input"),
-    toDoList = document.querySelector(".toDoList");
+const toDoForm = document.querySelector(".toDoForm");
+const input = toDoForm.querySelector("input");
+const toDoList = document.querySelector(".toDoList");
 const toDos_LS = "toDos";
 let toDos = [];
 
 const countTitle = document.querySelector(".count");
 let counts = 0;
+
+const btnContainer = document.querySelector(".js-btn");
+const allChecked = btnContainer.querySelector(".allChecked");
+const allUnChecked = btnContainer.querySelector(".allUnChecked");
+const allDeleted = btnContainer.querySelector(".allDeleted");
+
+function handleChange() {
+    saveToDos();
+    countToDos();
+}
 
 function saveToDos() {
     localStorage.setItem(toDos_LS, JSON.stringify(toDos));
@@ -30,8 +40,7 @@ function delToDos(event) {
             return toDo.id !== parseInt(li.id);
         })
         toDos = cleanToDos;
-        saveToDos();
-        countToDos();
+        handleChange();
     } else {
         return false;
     }
@@ -49,14 +58,15 @@ function doneToDos(event) {
             if (isChecked) {
                 item.check = 0;
                 checkI.className = "far fa-circle"
+                span.classList.remove("checked")
                 counts -= 1
             } else {
                 item.check = 1;
                 checkI.className = "fas fa-check-circle";
+                span.classList.add("checked")
                 counts += 1;
             }
-            saveToDos();
-            countToDos();
+            handleChange();
             
         }
     });
@@ -84,10 +94,37 @@ function paintToDo(text,check) {
         check: (check ? 1 : 0)
     };
     toDos.push(toDoObj);
-    saveToDos();
-    countToDos();
+    handleChange();
     delBtn.addEventListener("click", delToDos);
     checkBox.addEventListener("click", doneToDos);
+}
+
+function deleteAll(){
+    const lis = toDoList.querySelectorAll("li");
+    lis.forEach(todo=>toDoList.removeChild(todo));
+    toDos = [];
+    counts = 0;
+    handleChange();
+}
+
+function checkAll(e){
+    if(toDos.length === 0){
+        return
+    }
+    if(e.target.className === "all allChecked"){
+        console.log("checked");
+        const lis = toDoList.querySelectorAll("i.fa-circle");
+        toDos.forEach(todo => todo.check = 1);
+        lis.forEach(todo => todo.className = "fa-check-circle");
+        counts = toDos.length;
+    } else {
+        console.log("unchecked");
+        const lis = toDoList.querySelectorAll("i.fa-check-circle");
+        toDos.forEach(todo => todo.check = 0);
+        lis.forEach(todo => todo.className = "fa-circle");
+        counts = 0;
+    };
+    handleChange();
 }
 
 function handleSubmit(event) {
@@ -117,6 +154,9 @@ function init() {
     loadToDos();
     countToDos();
     toDoForm.addEventListener("submit", handleSubmit);
+    allChecked.addEventListener("click",checkAll);
+    allUnChecked.addEventListener("click",checkAll);
+    allDeleted.addEventListener("click",deleteAll)
 }
 
 init();

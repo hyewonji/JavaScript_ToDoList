@@ -42,6 +42,7 @@ input::placeholder {
   list-style: none;
   border: 100px, 0;
   padding-inline-start: 0;
+  margin-bottom: 0;
 }
 
 li {
@@ -49,9 +50,12 @@ li {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /*display:inline-block;*/
   width: 300px;
   position: relative;
+}
+
+li:last-child {
+  margin-bottom: 0;
 }
 
 .delBtn {
@@ -94,15 +98,15 @@ span {
   color: #606060;
 }
 
-.btn {
+.js-btn {
   display: flex;
-  font-family: "Gaegu", cursive;
 }
 
 .all {
-  margin: 8px;
-  padding: 3px;
-  font-size: 18px;
+  color: rgb(153, 153, 153);
+  font-family: "Gaegu", cursive;
+  font-size: 15px;
+  padding: 10px 10px 25px 10px;
 }
 
 .all:hover {
