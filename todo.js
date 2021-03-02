@@ -70,8 +70,6 @@ function doneToDos(event) {
             
         }
     });
-    
-
 };
 
 function paintToDo(text,check) {
@@ -80,8 +78,9 @@ function paintToDo(text,check) {
     const toDo = document.createElement("span");
     const delBtn = document.createElement("i");
     const newId = toDos.length + 1;
-    checkBox.className = (check ? "fa-check-circle" : "far fa-circle");
+    checkBox.className = (check ? "fas fa-check-circle" : "far fa-circle");
     toDo.innerText = text;
+    toDo.className = (check ? "checked" : null);
     delBtn.className = "far fa-trash-alt"
     li.appendChild(checkBox);
     li.appendChild(toDo);
@@ -100,11 +99,15 @@ function paintToDo(text,check) {
 }
 
 function deleteAll(){
-    const lis = toDoList.querySelectorAll("li");
-    lis.forEach(todo=>toDoList.removeChild(todo));
-    toDos = [];
-    counts = 0;
-    handleChange();
+    if(confirm("Are you sure to delete all of lists?") === true){
+        const lis = toDoList.querySelectorAll("li");
+        lis.forEach(li=>toDoList.removeChild(li));
+        toDos = [];
+        counts = 0;
+        handleChange();
+    } else {
+        return false;
+    }
 }
 
 function checkAll(e){
@@ -114,12 +117,20 @@ function checkAll(e){
     if(e.target.className === "all allChecked"){
         const lis = toDoList.querySelectorAll("i.fa-circle");
         toDos.forEach(todo => todo.check = 1);
-        lis.forEach(todo => todo.className = "fa-check-circle");
+        lis.forEach((li) => {
+            const span = li.parentNode.querySelector("span");
+            span.classList.add("checked")
+            li.className = "fas fa-check-circle"
+        });
         counts = toDos.length;
     } else {
         const lis = toDoList.querySelectorAll("i.fa-check-circle");
         toDos.forEach(todo => todo.check = 0);
-        lis.forEach(todo => todo.className = "fa-circle");
+        lis.forEach((li) => {
+            const span = li.parentNode.querySelector("span");
+            span.classList.remove("checked")
+            li.className = "far fa-circle"
+        });
         counts = 0;
     };
     handleChange();
