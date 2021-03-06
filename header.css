@@ -23,6 +23,10 @@ header {
   border: 0px;
 }
 
+.realTimeWeather {
+  margin: 0 10px;
+}
+
 .js-toDoBoard {
   display: flex;
   flex-direction: column;
