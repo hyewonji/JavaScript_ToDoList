@@ -13,7 +13,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #fff9ea;
+  background: #ffe6a7;
 }
 
 .content {
@@ -24,7 +24,13 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background: white;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+@media all and (orientation: landscape) {
+  body {
+    background: #bac7ff;
+  }
 }
