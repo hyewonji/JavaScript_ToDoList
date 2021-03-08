@@ -9,6 +9,8 @@ header {
 
 .js-clock {
   display: flex;
+  align-items: center;
+  justify-content: center;
   font-family: "Bad Script", cursive;
   border-bottom: 10px;
 }
@@ -45,6 +47,7 @@ header {
 
 .title {
   font-family: "Bad Script", cursive;
+  margin-top: 0;
 }
 
 input {
@@ -65,4 +68,9 @@ input::placeholder {
   text-align: center;
   text-justify: center;
   color: #a5acb1;
+}
+
+.weatherImg {
+  width: 70px;
+  height: 70px;
 }
