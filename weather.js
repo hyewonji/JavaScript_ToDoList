@@ -4,6 +4,8 @@ const API_KEY = 'ed3b96c06f6343ed844ef371d65d6a1b';
 const COORDS_LS = 'coords';
 
 function showWeather(weatherObj){
+    const tooltipText = weather.getAttributeNode('tooltip-text');
+    tooltipText.value = `Weather Detail\n Location: ${weatherObj.name}\n Temperature: ${weatherObj.temperature}\n Weather: ${weatherObj.description}`;
     const desc = weatherObj.description;
     const img = document.createElement("img");
     img.className = "weatherImg";
