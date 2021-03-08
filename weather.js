@@ -60,16 +60,18 @@ function saveCoors(lat,lon){
 function handleGeoSuccess(position){
     const loadedCoords = localStorage.getItem(COORDS_LS);
     const parseCoords = JSON.parse(loadedCoords);
-    const lat_LS = parseCoords.latitude,
-        lon_LS = parseCoords.longitude;
 
     const latitude = position.coords.latitude,
         longitude = position.coords.longitude;
 
-    if(loadedCoords === null || (lat_LS - latitude) > 0.1 || (lon_LS - longitude) > 0.1){
-        saveCoors(latitude,longitude);
+    if(loadedCoords === null || (parseCoords.latitude - latitude) > 0.1 || (parseCoords.longitude - longitude) > 0.1){
+            saveCoors(latitude,longitude); 
+            getWeatherApi(latitude,longitude);  
+    } else {
+        const lat_LS = parseCoords.latitude,
+            lon_LS = parseCoords.longitude;
+        getWeatherApi(lat_LS,lon_LS);
     }
-    getWeatherApi(lat_LS,lon_LS);
 }
 
 function getGeoLocation(){
