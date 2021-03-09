@@ -35,12 +35,18 @@ function delToDos(event) {
         if (checkI.className === 'fas fa-check-circle') {
             counts -= 1;
         }
-        toDoList.removeChild(li);
-        const cleanToDos = toDos.filter(function (toDo) {
-            return toDo.id !== parseInt(li.id);
-        })
-        toDos = cleanToDos;
-        handleChange();
+        li.style.transform = 'translateY(-30%)';
+        li.style.opacity = '0';
+        li.style.transition = 'all 0.5s'
+        setTimeout(function(){
+            toDoList.removeChild(li)
+            const cleanToDos = toDos.filter(
+                function (toDo) {
+                    return toDo.id !== parseInt(li.id);
+                });
+            toDos = cleanToDos;
+            handleChange();
+        },450); 
     } else {
         return false;
     }

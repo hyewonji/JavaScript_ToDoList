@@ -5,17 +5,19 @@ const COORDS_LS = 'coords';
 
 function showWeather(weatherObj){
     const tooltipText = weather.getAttributeNode('tooltip-text');
-    tooltipText.value = `Weather Detail\n Location: ${weatherObj.name}\n Temperature: ${weatherObj.temperature}\n Weather: ${weatherObj.description}`;
-    const desc = weatherObj.description;
+    tooltipText.value = `Weather Detail\n Location: ${weatherObj.name}\n Temperature: ${weatherObj.temperature}°C\n Weather: ${weatherObj.description}`;
+    
     const img = document.createElement("img");
     img.className = "weatherImg";
+    
+    const desc = weatherObj.description;
     if(desc === 'clear sky'){
         img.src = "http://openweathermap.org/img/wn/01d@2x.png";
     } else if(desc === 'few clouds'){
         img.src = "http://openweathermap.org/img/wn/02d@2x.png";
-    } else if(desc === 'scattered clouds' && desc === 'broken clouds'){
-        img.src = "http://openweathermap.org/img/wn/03d@2x.png";
-    } else if(desc === 'shower rain' && desc === 'rain'){
+    } else if(desc === 'scattered clouds' || desc === 'broken clouds'){
+        img.src = "http://openweathermap.org/img/wn/04d@2x.png";
+    } else if(desc === 'shower rain' || desc === 'rain'){
         img.src = "http://openweathermap.org/img/wn/10d@2x.png";
     } else if(desc === 'thunderstorm'){
         img.src = "http://openweathermap.org/img/wn/11d@2x.png";
@@ -33,9 +35,10 @@ function getWeatherApi(lat,lon){
     .then(function(response){
         return response.json();
     }).then(function(json){
-        const temperature = json.main.temp,
+        const temperature = (json.main.temp-273).toFixed(1),
             name = json.name,
             description = json.weather[0].description;
+
         const weatherObj = {
             temperature,
             name,

@@ -7,6 +7,7 @@ main {
   border-radius: 20px;
   overflow: auto;
   background: #f3f3f3;
+  box-shadow: inset 0 -2px 3px rgb(0 0 0 / 33%);
 }
 
 main > ul {
@@ -38,6 +39,7 @@ li > i {
 
 li > i:hover {
   color: #5f6266;
+  cursor: pointer;
 }
 
 li > .fa-check-circle {
