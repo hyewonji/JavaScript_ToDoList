@@ -12,20 +12,18 @@ function showWeather(weatherObj){
     
     const desc = weatherObj.description;
     if(desc === 'clear sky'){
-        img.src = "http://openweathermap.org/img/wn/01d@2x.png";
-    } else if(desc === 'few clouds'){
-        img.src = "http://openweathermap.org/img/wn/02d@2x.png";
-    } else if(desc === 'scattered clouds' || desc === 'broken clouds'){
-        img.src = "http://openweathermap.org/img/wn/04d@2x.png";
+        img.src = "images/clearsky.png";
+    } else if(desc === 'few clouds' || desc === 'mist'){
+        img.src = "images/haze.png";
+    } else if(desc === 'scattered clouds' || desc === 'broken clouds' || desc === 'overcast clouds'){
+        img.src = "./images/clouds.png";
     } else if(desc === 'shower rain' || desc === 'rain'){
-        img.src = "http://openweathermap.org/img/wn/10d@2x.png";
+        img.src = "./images/rain.png";
     } else if(desc === 'thunderstorm'){
-        img.src = "http://openweathermap.org/img/wn/11d@2x.png";
+        img.src = "./images/thunderstorm.png";
     } else if(desc === 'snow'){
-        img.src = "http://openweathermap.org/img/wn/13d@2x.png";
-    } else if(desc === 'mist'){
-        img.src = "http://openweathermap.org/img/wn/50d@2x.png";
-    } 
+        img.src = "./images/snow.png";
+    }
     
     weather.appendChild(img);
 }
@@ -66,6 +64,7 @@ function handleGeoSuccess(position){
 
     const latitude = position.coords.latitude,
         longitude = position.coords.longitude;
+    console.log(latitude,longitude);
 
     if(loadedCoords === null || (parseCoords.latitude - latitude) > 0.1 || (parseCoords.longitude - longitude) > 0.1){
             saveCoors(latitude,longitude); 
